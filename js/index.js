@@ -23,7 +23,7 @@ var app = new Vue({
       this.player.buttonPusher[i].amount += 1
       this.player.buttonPusher[i].bought += 1
     },
-    buySupevisorGenerator(i) {
+    buySupervisorGenerator(i) {
       let g = this.player.supervisor[i]
       if (g.cost > this.player.money) return
       this.player.money -= g.cost
@@ -33,6 +33,9 @@ var app = new Vue({
     },
     format(amount) {
       return format(amount)
+    },
+    formatAmount(amount) {
+      return formatAmount(amount)
     },
     gameLoop() {
       gameLoop(this)

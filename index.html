@@ -24,31 +24,31 @@
       </div>
       <div class="producersContainer">
         <div class="generators">
-          <div class="generator receptionGenerator" v-for="(reception, idx) in player.reception">
+          <div class="generator receptionGenerator" id="receptionGenerator" v-for="(reception, idx) in player.reception">
             <!-- (reception, idx) means it is accessing the index of reception -->
             <h4 class="genName">{{reception.name}}</h4>
-            <span>{{format(reception.amount)}}</span>
-            <span>x{{format(reception.multiplier)}}</span>
+            <span>{{formatAmount(reception.amount)}}</span>
+            <span>x{{format(reception.multiplier)}} ({{reception.bought}})</span>
             <span class="generatorCost">${{format(reception.cost)}}</span>
             <button @click="buyReceptionistGenerator(idx)">Buy 1</button>
           </div>
         </div>
         <div class="generators">
-          <div class="generator buttonPusherGenerator" v-for="(reception, idx) in player.buttonPusher">
+          <div class="generator buttonPusherGenerator" id="buttonPusherGenerator" v-for="(buttonPusher, idx) in player.buttonPusher">
             <!-- (reception, idx) means it is accessing the index of reception -->
             <h4 class="genName">{{buttonPusher.name}}</h4>
-            <span>{{format(buttonPusher.amount)}}</span>
-            <span>x{{format(buttonPusher.multiplier)}}</span>
+            <span>{{formatAmount(buttonPusher.amount)}}</span>
+            <span>x{{format(buttonPusher.multiplier)}} ({{buttonPusher.bought}})</span>
             <span class="generatorCost">${{format(buttonPusher.cost)}}</span>
             <button @click="buyButtonPusherGenerator(idx)">Buy 1</button>
           </div>
         </div>
         <div class="generators">
-          <div class="generator supervisorGenerator" v-for="(reception, idx) in player.supervisor">
+          <div class="generator supervisorGenerator" id="supervisorGenerator" v-for="(supervisor, idx) in player.supervisor">
             <!-- (reception, idx) means it is accessing the index of reception -->
             <h4 class="genName">{{supervisor.name}}</h4>
-            <span>{{format(supervisor.amount)}}</span>
-            <span>x{{format(supervisor.multiplier)}}</span>
+            <span>{{formatAmount(supervisor.amount)}}</span>
+            <span>x{{format(supervisor.multiplier)}} ({{supervisor.bought}})</span>
             <span class="generatorCost">${{format(supervisor.cost)}}</span>
             <button @click="buySupervisorGenerator(idx)">Buy 1</button>
           </div>
