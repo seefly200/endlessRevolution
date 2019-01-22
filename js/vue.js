@@ -22,7 +22,7 @@
   function isDef (v) {
     return v !== undefined && v !== null
   }
-
+this
   function isTrue (v) {
     return v === true
   }

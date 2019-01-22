@@ -3,11 +3,62 @@
   <head>
     <meta charset="utf-8">
     <title>Endless Revolution*</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script type="text/javascript">
+      console.log(Math.floor(Math.log(12.5)));
+    </script>
   </head>
   <body>
-    <button onclick="getCash()">Click for cash.</button>
-    <div id="dosh">$0</div>
+    <div id="app">
+      <div class="currencyContainer">
+        <div class="receptionCurrency">
+          ${{format(player.money)}}
+          <!-- variables in vue are accessed using two curly brackets -->
+        </div>
+        <div class="buttonPusherCurrency">
+
+        </div>
+        <div class="supervisorCurrency">
+
+        </div>
+      </div>
+      <div class="producersContainer">
+        <div class="generators">
+          <div class="generator receptionGenerator" v-for="(reception, idx) in player.reception">
+            <!-- (reception, idx) means it is accessing the index of reception -->
+            <h4 class="genName">{{reception.name}}</h4>
+            <span>{{format(reception.amount)}}</span>
+            <span>x{{format(reception.multiplier)}}</span>
+            <span class="generatorCost">${{format(reception.cost)}}</span>
+            <button @click="buyReceptionistGenerator(idx)">Buy 1</button>
+          </div>
+        </div>
+        <div class="generators">
+          <div class="generator buttonPusherGenerator" v-for="(reception, idx) in player.buttonPusher">
+            <!-- (reception, idx) means it is accessing the index of reception -->
+            <h4 class="genName">{{buttonPusher.name}}</h4>
+            <span>{{format(buttonPusher.amount)}}</span>
+            <span>x{{format(buttonPusher.multiplier)}}</span>
+            <span class="generatorCost">${{format(buttonPusher.cost)}}</span>
+            <button @click="buyButtonPusherGenerator(idx)">Buy 1</button>
+          </div>
+        </div>
+        <div class="generators">
+          <div class="generator supervisorGenerator" v-for="(reception, idx) in player.supervisor">
+            <!-- (reception, idx) means it is accessing the index of reception -->
+            <h4 class="genName">{{supervisor.name}}</h4>
+            <span>{{format(supervisor.amount)}}</span>
+            <span>x{{format(supervisor.multiplier)}}</span>
+            <span class="generatorCost">${{format(supervisor.cost)}}</span>
+            <button @click="buySupervisorGenerator(idx)">Buy 1</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
-  <script src="js/main.js"></script>
+  <script src="js/vue.js" charset="utf-8"></script>
+  <script src="js/format.js" charset="utf-8"></script>
+  <script src="js/player.js" charset="utf-8"></script>
+  <script src="js/loop.js" charset="utf-8"></script>
+  <script src="js/index.js" charset="utf-8"></script>
 </html>
